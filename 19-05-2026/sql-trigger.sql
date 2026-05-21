@@ -41,3 +41,21 @@ update students set full_name='Ali' where id=1;
 
 
 alter table student_logs drop column created_at;
+
+
+
+drop trigger if exists remove_student;
+create trigger remove_student
+after delete on brands
+for each row
+delete from products where brand_id = old.id;
+
+delete from brands where id = 2;
+
+drop trigger if exists update_active;
+create trigger update_active
+after delete on categories
+for each row 
+update products set is_active = 0 where category_id = old.id; 
+
+delete from categories where id= 2;
