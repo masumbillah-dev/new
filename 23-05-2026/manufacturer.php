@@ -1,14 +1,30 @@
 <?php
 require_once "db-config.php";
 
+// echo "Hello";
 
+if(isset($_POST['add_mfg'])) {
+    $name = $_POST['name'] . "<br>";
+    $address = $_POST['address'] . "<br>";
+    $active = isset($_POST['active']) ? 1 : 0;
+
+    $db->query("INSERT INTO manufactures (name, address, is_active) VALUES ('$name', '$address', $active)");
+
+}
+
+if(isset($_POST['delete_id'])) {
+    $id = $_POST['delete_id'];
+    // $db->query("DELETE FROM manufactures WHERE id = $id");
+    echo "Delete id: $id";
+    
+}
 
 // "SELECT * FROM manufacturers";
 
 $result = $db->query("SELECT * FROM manufactures");
 
 if ($result) {
-    echo "Successful";
+    // echo "Successful";
     $mfg = $result->fetch_all(MYSQLI_ASSOC);
     // echo "<pre>";
     // print_r($mfg);
@@ -34,7 +50,7 @@ if ($result) {
         <a href="product.php">Product</a>
     </nav>
     <h2>Add New Manufacturer</h2>
-    <form action="">
+    <form action="" method="post">
         <label for="name">Name</label><br>
         <input type="text" name="name" id="name">
         <br><br>
@@ -68,7 +84,13 @@ if ($result) {
                         <td><?= $item['name'] ?></td>
                         <td><?= $item['address'] ?></td>
                         <td><?= $item['is_active'] ? "Active" : "Inactive"; ?></td>
-                        <td></td>
+                        
+                        <td>
+                            <form method = "POST">
+                                <input type="hidden" name="delete_id" value="<?= $item['id'] ?>">
+                                <button type="submit">Delete</button>
+
+                        </td>
                     </tr>    
                 <?php
                 }

@@ -13,7 +13,7 @@
 
 // $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-$db = new mysqli('localhost', 'root', '', 'new_round_70');
+$db = new mysqli('localhost', 'root', '', 'round_70');
 
 if($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
