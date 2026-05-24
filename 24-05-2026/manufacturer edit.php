@@ -3,20 +3,18 @@ require_once "db-config.php";
 
 // echo "Hello";
 
-if(isset($_POST['add_mfg'])) {
+if (isset($_POST['add_mfg'])) {
     $name = $_POST['name'] . "<br>";
     $address = $_POST['address'] . "<br>";
     $active = isset($_POST['active']) ? 1 : 0;
 
     $db->query("INSERT INTO manufactures (name, address, is_active) VALUES ('$name', '$address', $active)");
-
 }
 
-if(isset($_POST['delete_id'])) {
+if (isset($_POST['delete_id'])) {
     $id = $_POST['delete_id'];
     $db->query("DELETE FROM manufactures WHERE id = $id");
     echo "Delete id: $id";
-    
 }
 
 // "SELECT * FROM manufacturers";
@@ -41,7 +39,7 @@ if ($result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manufacturer</title>
+    <title>Manufacturer Edit</title>
 </head>
 
 <body>
@@ -55,7 +53,7 @@ if ($result) {
         <input type="text" name="name" id="name">
         <br><br>
         <label for="address">Address</label><br>
-        <textarea type="text" name="address" id="address"></textarea>
+        <textarea name="address" id="address"></textarea>
         <br><br>
         <input type="checkbox" name="active" id="active">
         <label for="active">Is active</label><br>
@@ -79,23 +77,36 @@ if ($result) {
             <?php
             if (isset($mfg)) {
                 foreach ($mfg as $item) { ?>
-                    <tr>
-                        <td><?= $item['id'] ?></td>
-                        <td><?= $item['name'] ?></td>
-                        <td><?= $item['address'] ?></td>
-                        <td><?= $item['is_active'] ? "Active" : "Inactive"; ?></td>
-                        
-                        <td>
-                            <form method = "POST">
-                                <input type="hidden" name="delete_id" value="<?= $item['id'] ?>">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr>    
-                <?php
+            <tr>
+                <td><?= $item['id'] ?></td>
+                <td><?= $item['name'] ?></td>
+                <td><?= $item['address'] ?></td>
+                <td><?= $item['is_active'] ? "Active" : "Inactive"; ?>
+                </td>
+
+                <td>
+                    <form action="manufacturer-details.php" method="GET">
+
+                        <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                        <button type="submit">Details</button>
+                    </form>
+                    <hr>
+                    <form method="get" action="manufacturer-edit.php">
+                        <input type="hidden" name="update_id" value="<?= $item['id'] ?>">
+                        <button type="submit">Update</button>
+                    </form>
+                    <hr>
+                    <form method="POST">
+                        <input type="hidden" name="delete_id" value="<?= $item['id'] ?>">
+                        <button type="submit">Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+            <?php
                 }
             }
-                ?>
+            ?>
         </tbody>
         </tbody>
     </table>

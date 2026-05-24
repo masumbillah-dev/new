@@ -79,20 +79,26 @@ if ($result) {
             <?php
             if (isset($mfg)) {
                 foreach ($mfg as $item) { ?>
-                    <tr>
-                        <td><?= $item['id'] ?></td>
-                        <td><?= $item['name'] ?></td>
-                        <td><?= $item['address'] ?></td>
-                        <td><?= $item['is_active'] ? "Active" : "Inactive"; ?></td>
-                        
-                        <td>
-                            <form method = "POST">
-                                <input type="hidden" name="delete_id" value="<?= $item['id'] ?>">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr>    
-                <?php
+            <tr>
+                <td><?= $item['id'] ?></td>
+                <td><?= $item['name'] ?></td>
+                <td><?= $item['address'] ?></td>
+                <td><?= $item['is_active'] ? "Active" : "Inactive"; ?>
+                </td>
+
+                <td>
+                    <form action="manufacturer-details.php" method="GET">
+
+                        <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                        <button type="submit">Details</button>
+                    </form> <hr>
+                    <form method="POST">
+                        <input type="hidden" name="delete_id" value="<?= $item['id'] ?>">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <?php
                 }
             }
                 ?>

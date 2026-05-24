@@ -60,45 +60,9 @@ if ($result) {
         <input type="checkbox" name="active" id="active">
         <label for="active">Is active</label><br>
         <br><br>
-        <button type="submit" name="add_mfg">Save</button>
+        <button type="submit" name="add_mfg">Update</button>
     </form>
 
-    <h3>Manufacturer List</h3>
-    <table border="1" cellspacing="0" cellpadding="10">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tbody>
-            <?php
-            if (isset($mfg)) {
-                foreach ($mfg as $item) { ?>
-                    <tr>
-                        <td><?= $item['id'] ?></td>
-                        <td><?= $item['name'] ?></td>
-                        <td><?= $item['address'] ?></td>
-                        <td><?= $item['is_active'] ? "Active" : "Inactive"; ?></td>
-                        
-                        <td>
-                            <form method = "POST">
-                                <input type="hidden" name="delete_id" value="<?= $item['id'] ?>">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr>    
-                <?php
-                }
-            }
-                ?>
-        </tbody>
-        </tbody>
-    </table>
 </body>
 
 </html>
