@@ -2,1397 +2,678 @@
 include_once 'config/base.php';
 ?>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE 4 | Form Elements</title>
 
-    <!--begin::Accessibility Meta Tags-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
-    <!--end::Accessibility Meta Tags-->
+<?php include_once ('views/layouts/head.php');?>
 
-    <!--begin::Primary Meta Tags-->
-    <meta name="title" content="AdminLTE 4 | Form Elements" />
-    <meta name="author" content="ColorlibHQ" />
-    <meta
-      name="description"
-      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
-    />
-    <meta
-      name="keywords"
-      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
-    />
-    <!--end::Primary Meta Tags-->
 
-    <!--begin::Accessibility Features-->
-    <!-- Skip links will be dynamically added by accessibility.js -->
-    <meta name="supported-color-schemes" content="light dark" />
-    <link rel="preload" href="<?php echo BASE_URL_ADMIN; ?>assets/css/adminlte.css" as="style" />
-    <!--end::Accessibility Features-->
+<!-- /wrapper -->
+<div class="wrapper">
 
-    <!--begin::Fonts-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
-      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
-      crossorigin="anonymous"
-      media="print"
-      onload="this.media = 'all'"
-    />
-    <!--end::Fonts-->
+  <?php include_once ('views/layouts/nav.php');?>
 
-    <!--begin::Third Party Plugin(OverlayScrollbars)-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
-      crossorigin="anonymous"
-    />
-    <!--end::Third Party Plugin(OverlayScrollbars)-->
+  <?php include_once ('views/layouts/aside.php')?>
 
-    <!--begin::Third Party Plugin(Bootstrap Icons)-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-      crossorigin="anonymous"
-    />
-    <!--end::Third Party Plugin(Bootstrap Icons)-->
-
-    <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="<?php echo BASE_URL_ADMIN; ?>assets/css/adminlte.css" />
-    <!--end::Required Plugin(AdminLTE)-->
-  </head>
-  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
-    <div class="app-wrapper">
-      <!--begin::Header-->
-      <nav class="app-header navbar navbar-expand bg-body">
-        <!--begin::Container-->
-        <div class="container-fluid">
-          <!--begin::Start Navbar Links-->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
-                <i class="bi bi-list"></i>
-              </a>
-            </li>
-
-            <li class="nav-item d-none d-md-block">
-              <a href="<?php echo BASE_URL_ADMIN; ?>index.html" class="nav-link">
-                <i class="bi bi-grid-1x2 me-1" aria-hidden="true"></i>
-                Live preview
-              </a>
-            </li>
-            <li class="nav-item d-none d-md-block">
-              <a href="<?php echo BASE_URL_ADMIN; ?>docs/introduction.html" class="nav-link">
-                <i class="bi bi-book me-1" aria-hidden="true"></i>
-                Documentation
-              </a>
-            </li>
-          </ul>
-          <!--end::Start Navbar Links-->
-
-          <!--begin::End Navbar Links-->
-          <ul class="navbar-nav ms-auto">
-            <!--begin::Navbar Search-->
-            <li class="nav-item">
-              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="bi bi-search"></i>
-              </a>
-            </li>
-            <!--end::Navbar Search-->
-
-            <!--begin::Messages Dropdown Menu-->
-            <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
-                <i class="bi bi-chat-text"></i>
-                <span class="navbar-badge badge text-bg-danger">3</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <a href="#" class="dropdown-item">
-                  <!--begin::Message-->
-                  <div class="d-flex">
-                    <div class="flex-shrink-0">
-                      <img
-                        src="<?php echo BASE_URL_ADMIN; ?>assets/img/user1-128x128.jpg"
-                        alt="User Avatar"
-                        class="img-size-50 rounded-circle me-3"
-                      />
-                    </div>
-                    <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
-                        Brad Diesel
-                        <span class="float-end fs-7 text-danger"
-                          ><i class="bi bi-star-fill"></i
-                        ></span>
-                      </h3>
-                      <p class="fs-7">Call me whenever you can...</p>
-                      <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
-                      </p>
-                    </div>
-                  </div>
-                  <!--end::Message-->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                  <!--begin::Message-->
-                  <div class="d-flex">
-                    <div class="flex-shrink-0">
-                      <img
-                        src="<?php echo BASE_URL_ADMIN; ?>assets/img/user8-128x128.jpg"
-                        alt="User Avatar"
-                        class="img-size-50 rounded-circle me-3"
-                      />
-                    </div>
-                    <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
-                        John Pierce
-                        <span class="float-end fs-7 text-secondary">
-                          <i class="bi bi-star-fill"></i>
-                        </span>
-                      </h3>
-                      <p class="fs-7">I got your message bro</p>
-                      <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
-                      </p>
-                    </div>
-                  </div>
-                  <!--end::Message-->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                  <!--begin::Message-->
-                  <div class="d-flex">
-                    <div class="flex-shrink-0">
-                      <img
-                        src="<?php echo BASE_URL_ADMIN; ?>assets/img/user3-128x128.jpg"
-                        alt="User Avatar"
-                        class="img-size-50 rounded-circle me-3"
-                      />
-                    </div>
-                    <div class="flex-grow-1">
-                      <h3 class="dropdown-item-title">
-                        Nora Silvester
-                        <span class="float-end fs-7 text-warning">
-                          <i class="bi bi-star-fill"></i>
-                        </span>
-                      </h3>
-                      <p class="fs-7">The subject goes here</p>
-                      <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
-                      </p>
-                    </div>
-                  </div>
-                  <!--end::Message-->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-              </div>
-            </li>
-            <!--end::Messages Dropdown Menu-->
-
-            <!--begin::Notifications Dropdown Menu-->
-            <li class="nav-item dropdown">
-              <a class="nav-link" data-bs-toggle="dropdown" href="#">
-                <i class="bi bi-bell-fill"></i>
-                <span class="navbar-badge badge text-bg-warning">15</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                  <i class="bi bi-envelope me-2"></i> 4 new messages
-                  <span class="float-end text-secondary fs-7">3 mins</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
-                  <span class="float-end text-secondary fs-7">12 hours</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
-                  <span class="float-end text-secondary fs-7">2 days</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
-              </div>
-            </li>
-            <!--end::Notifications Dropdown Menu-->
-
-            <!--begin::Fullscreen Toggle-->
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
-                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
-                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
-              </a>
-            </li>
-            <!--end::Fullscreen Toggle-->
-
-            <!--begin::Color Mode Toggle (#6010)-->
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                id="bd-theme"
-                aria-label="Toggle color scheme"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="bi bi-sun-fill" data-lte-theme-icon="light"></i>
-                <i class="bi bi-moon-fill d-none" data-lte-theme-icon="dark"></i>
-                <i class="bi bi-circle-half d-none" data-lte-theme-icon="auto"></i>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="bd-theme"
-                style="--bs-dropdown-min-width: 8rem"
-              >
-                <li>
-                  <button
-                    type="button"
-                    class="dropdown-item d-flex align-items-center"
-                    data-bs-theme-value="light"
-                    aria-pressed="false"
-                  >
-                    <i class="bi bi-sun-fill me-2"></i>
-                    Light
-                    <i class="bi bi-check-lg ms-auto d-none"></i>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    class="dropdown-item d-flex align-items-center"
-                    data-bs-theme-value="dark"
-                    aria-pressed="false"
-                  >
-                    <i class="bi bi-moon-fill me-2"></i>
-                    Dark
-                    <i class="bi bi-check-lg ms-auto d-none"></i>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    class="dropdown-item d-flex align-items-center active"
-                    data-bs-theme-value="auto"
-                    aria-pressed="true"
-                  >
-                    <i class="bi bi-circle-half me-2"></i>
-                    Auto
-                    <i class="bi bi-check-lg ms-auto d-none"></i>
-                  </button>
-                </li>
-              </ul>
-            </li>
-            <!--end::Color Mode Toggle-->
-
-            <!--begin::User Menu Dropdown-->
-            <li class="nav-item dropdown user-menu">
-              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                <img
-                  src="assets/img/user2-160x160.jpg"
-                  class="user-image rounded-circle shadow"
-                  alt="User Image"
-                />
-                <span class="d-none d-md-inline">Alexander Pierce</span>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <!--begin::User Image-->
-                <li class="user-header text-bg-primary">
-                  <img
-                    src="assets/img/user2-160x160.jpg"
-                    class="rounded-circle shadow"
-                    alt="User Image"
-                  />
-                  <p>
-                    Alexander Pierce - Web Developer
-                    <small>Member since Nov. 2023</small>
-                  </p>
-                </li>
-                <!--end::User Image-->
-                <!--begin::Menu Body-->
-                <li class="user-body">
-                  <!--begin::Row-->
-                  <div class="row">
-                    <div class="col-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </div>
-                  <!--end::Row-->
-                </li>
-                <!--end::Menu Body-->
-                <!--begin::Menu Footer-->
-                <li class="user-footer">
-                  <a href="#" class="btn btn-outline-secondary">Profile</a>
-                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
-                </li>
-                <!--end::Menu Footer-->
-              </ul>
-            </li>
-            <!--end::User Menu Dropdown-->
-          </ul>
-          <!--end::End Navbar Links-->
-        </div>
-        <!--end::Container-->
-      </nav>
-      <!--end::Header-->
-      <!--begin::Sidebar-->
-      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
-        <!--begin::Sidebar Brand-->
-        <div class="sidebar-brand">
-          <!--begin::Brand Link-->
-          <a href="../index.html" class="brand-link">
-            <!--begin::Brand Image-->
-            <img
-              src="assets/img/AdminLTELogo.png"
-              alt="AdminLTE Logo"
-              class="brand-image opacity-75 shadow"
-            />
-            <!--end::Brand Image-->
-            <!--begin::Brand Text-->
-            <span class="brand-text fw-light">AdminLTE 4</span>
-            <!--end::Brand Text-->
-          </a>
-          <!--end::Brand Link-->
-        </div>
-        <!--end::Sidebar Brand-->
-        <!--begin::Sidebar Wrapper-->
-        <div class="sidebar-wrapper">
-          <nav class="mt-2">
-            <!--begin::Sidebar Menu-->
-            <ul
-              class="nav sidebar-menu flex-column"
-              data-lte-toggle="treeview"
-              role="navigation"
-              aria-label="Main navigation"
-              data-accordion="false"
-              id="navigation"
-            >
-                        <li class="nav-item">
-                    <a href="index.php" class="nav-link active">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>first one</p>
-                    </a>
-                  </li>
-                              <li class="nav-item">
-                    <a href="./index2.html" class="nav-link active">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p> oiii</p>
-                    </a>
-                  </li>
-            <li class="nav-item">
-            <li class="nav-item">
-              <li class="nav-item">
-                <a href="inde" class="nav-link">
-                  <i class="nav-icon bi bi-speedometer"></i>
-                  <p> Dashboard
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../index.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v1</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../index2.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../index3.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v3</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="../generate/theme.html" class="nav-link">
-                  <i class="nav-icon bi bi-palette"></i>
-                  <p>Theme Generate</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-box-seam-fill"></i>
-                  <p>
-                    Widgets
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../widgets/small-box.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Small Box</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../widgets/info-box.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>info Box</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../widgets/cards.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Cards</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-clipboard-fill"></i>
-                  <p>
-                    Layout Options
-                    <span class="nav-badge badge text-bg-secondary me-3">7</span>
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../layout/unfixed-sidebar.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Default Sidebar</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/fixed-sidebar.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Sidebar</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/fixed-header.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Header</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/fixed-footer.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Footer</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/fixed-complete.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Complete</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/layout-custom-area.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout <small>+ Custom Area </small></p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/sidebar-mini.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/collapsed-sidebar.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Collapsed</small></p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/collapsed-sidebar-without-hover.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Collapsed + No Hover</small></p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/logo-switch.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Logo Switch</small></p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../layout/layout-rtl.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout RTL</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-tree-fill"></i>
-                  <p>
-                    UI Elements
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../UI/general.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>General</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../UI/icons.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Icons</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../UI/timeline.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Timeline</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-envelope"></i>
-                  <p>
-                    Mailbox
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../mailbox/inbox.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Inbox</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../mailbox/read.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Read Message</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../mailbox/compose.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Compose</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="nav-item menu-open">
-                <a href="#" class="nav-link active">
-                  <i class="nav-icon bi bi-pencil-square"></i>
-                  <p>
-                    Forms
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../forms/elements.html" class="nav-link active">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Elements</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../forms/layout.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../forms/validation.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Validation</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../forms/wizard.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Wizard</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-table"></i>
-                  <p>
-                    Tables
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../tables/simple.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Simple Tables</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../tables/data.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Data Tables</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="nav-header">PAGES</li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-file-earmark-text"></i>
-                  <p>
-                    Pages
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../pages/profile.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Profile</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/settings.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Settings</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/invoice.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Invoice</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/calendar.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Calendar</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/kanban.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Kanban</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/chat.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Chat</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/file-manager.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>File Manager</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/projects.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Projects</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/pricing.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Pricing</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/faq.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>FAQ</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>
-                        Error
-                        <i class="nav-arrow bi bi-chevron-right"></i>
-                      </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="../pages/404.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>404</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="../pages/500.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>500</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="../pages/maintenance.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>Maintenance</p>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="nav-header">EXAMPLES</li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                  <p>
-                    Auth
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                      <p>
-                        Version 1
-                        <i class="nav-arrow bi bi-chevron-right"></i>
-                      </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="../examples/login.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>Login</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="../examples/register.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>Register</p>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                      <p>
-                        Version 2
-                        <i class="nav-arrow bi bi-chevron-right"></i>
-                      </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="../examples/login-v2.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>Login</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="../examples/register-v2.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>Register</p>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../examples/lockscreen.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Lockscreen</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>Level 1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>
-                    Level 1
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Level 2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>
-                        Level 2
-                        <i class="nav-arrow bi bi-chevron-right"></i>
-                      </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">
-                          <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>Level 3</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">
-                          <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>Level 3</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">
-                          <i class="nav-icon bi bi-record-circle-fill"></i>
-                          <p>Level 3</p>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Level 2</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-circle-fill"></i>
-                  <p>Level 1</p>
-                </a>
-              </li>
-
-              <li class="nav-header">LABELS</li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-circle text-danger"></i>
-                  <p class="text">Important</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-circle text-warning"></i>
-                  <p>Warning</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-circle text-info"></i>
-                  <p>Informational</p>
-                </a>
-              </li>
-            </ul>
-            <!--end::Sidebar Menu-->
-
-            <!-- Docs CTA (bottom of sidebar) -->
-            <div class="p-3 mt-3 border-top border-secondary border-opacity-25">
-              <a
-                href="../docs/introduction.html"
-                class="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
-              >
-                <i class="bi bi-book" aria-hidden="true"></i>
-                View documentation
-              </a>
-            </div>
-          </nav>
-        </div>
-        <!--end::Sidebar Wrapper-->
-      </aside>
-      <!--end::Sidebar-->
-      <main class="app-main">
-        <div class="app-content-header">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm-6">
-                <h3 class="mb-0">Form Elements</h3>
-              </div>
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Elements</li>
-                </ol>
-              </div>
-            </div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>General Form</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">General Form</li>
+            </ol>
           </div>
         </div>
-        <div class="app-content">
-          <div class="container-fluid">
-            <div class="row g-4">
-              <div class="col-12">
-                <div class="callout callout-info">
-                  For detailed documentation visit
-                  <a
-                    href="https://getbootstrap.com/docs/5.3/forms/overview/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="callout-link"
-                    >Bootstrap Forms</a
-                  >.
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Quick Example</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Different Styles</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <h4>Input</h4>
+                <div class="form-group">
+                  <label for="exampleInputBorder">Bottom Border only <code>.form-control-border</code></label>
+                  <input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder=".form-control-border">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputBorderWidth2">Bottom Border only 2px Border <code>.form-control-border.border-width-2</code></label>
+                  <input type="text" class="form-control form-control-border border-width-2" id="exampleInputBorderWidth2" placeholder=".form-control-border.border-width-2">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputRounded0">Flat <code>.rounded-0</code></label>
+                  <input type="text" class="form-control rounded-0" id="exampleInputRounded0" placeholder=".rounded-0">
+                </div>
+                <h4>Custom Select</h4>
+                <div class="form-group">
+                  <label for="exampleSelectBorder">Bottom Border only <code>.form-control-border</code></label>
+                  <select class="custom-select form-control-border" id="exampleSelectBorder">
+                    <option>Value 1</option>
+                    <option>Value 2</option>
+                    <option>Value 3</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleSelectBorderWidth2">Bottom Border only <code>.form-control-border.border-width-2</code></label>
+                  <select class="custom-select form-control-border border-width-2" id="exampleSelectBorderWidth2">
+                    <option>Value 1</option>
+                    <option>Value 2</option>
+                    <option>Value 3</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleSelectRounded0">Flat <code>.rounded-0</code></label>
+                  <select class="custom-select rounded-0" id="exampleSelectRounded0">
+                    <option>Value 1</option>
+                    <option>Value 2</option>
+                    <option>Value 3</option>
+                  </select>
                 </div>
               </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
 
-              <!-- Quick Example -->
-              <div class="col-md-6">
-                <div class="card card-primary card-outline mb-4">
-                  <div class="card-header">
-                    <div class="card-title">Quick Example</div>
+            <!-- Input addon -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Input Addon</h3>
+              </div>
+              <div class="card-body">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
                   </div>
-                  <form>
-                    <div class="card-body">
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="exampleInputEmail1"
-                          aria-describedby="emailHelp"
-                        />
-                        <div id="emailHelp" class="form-text">
-                          We'll never share your email with anyone else.
+                  <input type="text" class="form-control" placeholder="Username">
+                </div>
+
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control">
+                  <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div>
+                  <input type="text" class="form-control">
+                  <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                  </div>
+                </div>
+
+                <h4>With icons</h4>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                  </div>
+                  <input type="email" class="form-control" placeholder="Email">
+                </div>
+
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-check"></i></span>
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-dollar-sign"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control">
+                  <div class="input-group-append">
+                    <div class="input-group-text"><i class="fas fa-ambulance"></i></div>
+                  </div>
+                </div>
+
+                <h5 class="mt-4 mb-2">With checkbox and radio inputs</h5>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <input type="checkbox">
+                        </span>
+                      </div>
+                      <input type="text" class="form-control">
+                    </div>
+                    <!-- /input-group -->
+                  </div>
+                  <!-- /.col-lg-6 -->
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><input type="radio"></span>
+                      </div>
+                      <input type="text" class="form-control">
+                    </div>
+                    <!-- /input-group -->
+                  </div>
+                  <!-- /.col-lg-6 -->
+                </div>
+                <!-- /.row -->
+
+                <h5 class="mt-4 mb-2">With buttons</h5>
+
+                <p>Large: <code>.input-group.input-group-lg</code></p>
+
+                <div class="input-group input-group-lg mb-3">
+                  <div class="input-group-prepend">
+                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                      Action
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item"><a href="#">Action</a></li>
+                      <li class="dropdown-item"><a href="#">Another action</a></li>
+                      <li class="dropdown-item"><a href="#">Something else here</a></li>
+                      <li class="dropdown-divider"></li>
+                      <li class="dropdown-item"><a href="#">Separated link</a></li>
+                    </ul>
+                  </div>
+                  <!-- /btn-group -->
+                  <input type="text" class="form-control">
+                </div>
+                <!-- /input-group -->
+
+                <p>Normal</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <button type="button" class="btn btn-danger">Action</button>
+                  </div>
+                  <!-- /btn-group -->
+                  <input type="text" class="form-control">
+                </div>
+                <!-- /input-group -->
+
+                <p>Small <code>.input-group.input-group-sm</code></p>
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control">
+                  <span class="input-group-append">
+                    <button type="button" class="btn btn-info btn-flat">Go!</button>
+                  </span>
+                </div>
+                <!-- /input-group -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- Horizontal Form -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Horizontal Form</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form class="form-horizontal">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                        <label class="form-check-label" for="exampleCheck2">Remember me</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info">Sign in</button>
+                  <button type="submit" class="btn btn-default float-right">Cancel</button>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+            <!-- Form Element sizes -->
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Different Height</h3>
+              </div>
+              <div class="card-body">
+                <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg">
+                <br>
+                <input class="form-control" type="text" placeholder="Default input">
+                <br>
+                <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm">
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Different Width</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-3">
+                    <input type="text" class="form-control" placeholder=".col-3">
+                  </div>
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder=".col-4">
+                  </div>
+                  <div class="col-5">
+                    <input type="text" class="form-control" placeholder=".col-5">
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- general form elements disabled -->
+            <div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">General Elements</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Text</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Text Disabled</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." disabled>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Textarea</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Textarea Disabled</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- input states -->
+                  <div class="form-group">
+                    <label class="col-form-label" for="inputSuccess"><i class="fas fa-check"></i> Input with
+                      success</label>
+                    <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter ...">
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label" for="inputWarning"><i class="far fa-bell"></i> Input with
+                      warning</label>
+                    <input type="text" class="form-control is-warning" id="inputWarning" placeholder="Enter ...">
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label" for="inputError"><i class="far fa-times-circle"></i> Input with
+                      error</label>
+                    <input type="text" class="form-control is-invalid" id="inputError" placeholder="Enter ...">
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- checkbox -->
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox">
+                          <label class="form-check-label">Checkbox</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" checked>
+                          <label class="form-check-label">Checkbox checked</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" disabled>
+                          <label class="form-check-label">Checkbox disabled</label>
                         </div>
                       </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" />
-                      </div>
-                      <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="inputGroupFile02" />
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                      </div>
-                      <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                      </div>
                     </div>
-                    <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-              <!-- Input Group -->
-              <div class="col-md-6">
-                <div class="card card-success card-outline mb-4">
-                  <div class="card-header">
-                    <div class="card-title">Input Group</div>
-                  </div>
-                  <div class="card-body">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">@</span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Username"
-                        aria-label="Username"
-                        aria-describedby="basic-addon1"
-                      />
-                    </div>
-                    <div class="input-group mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Recipient's username"
-                        aria-label="Recipient's username"
-                        aria-describedby="basic-addon2"
-                      />
-                      <span class="input-group-text" id="basic-addon2">@example.com</span>
-                    </div>
-                    <div class="mb-3">
-                      <label for="basic-url" class="form-label">Your vanity URL</label>
-                      <div class="input-group">
-                        <span class="input-group-text" id="basic-addon3"
-                          >https://example.com/users/</span
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="basic-url"
-                          aria-describedby="basic-addon3 basic-addon4"
-                        />
-                      </div>
-                      <div class="form-text" id="basic-addon4">
-                        Example help text goes outside the input group.
+                    <div class="col-sm-6">
+                      <!-- radio -->
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radio1">
+                          <label class="form-check-label">Radio</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radio1" checked>
+                          <label class="form-check-label">Radio checked</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" disabled>
+                          <label class="form-check-label">Radio disabled</label>
+                        </div>
                       </div>
                     </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text">$</span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        aria-label="Amount (to the nearest dollar)"
-                      />
-                      <span class="input-group-text">.00</span>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Select</label>
+                        <select class="form-control">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
                     </div>
-                    <div class="input-group mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Username"
-                        aria-label="Username"
-                      />
-                      <span class="input-group-text">@</span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Server"
-                        aria-label="Server"
-                      />
-                    </div>
-                    <div class="input-group">
-                      <span class="input-group-text">With textarea</span>
-                      <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Select Disabled</label>
+                        <select class="form-control" disabled>
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
-                </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- Select multiple-->
+                      <div class="form-group">
+                        <label>Select Multiple</label>
+                        <select multiple class="form-control">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Select Multiple Disabled</label>
+                        <select multiple class="form-control" disabled>
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
-
-              <!-- Checks & Radios -->
-              <div class="col-md-6">
-                <div class="card card-info card-outline mb-4">
-                  <div class="card-header">
-                    <div class="card-title">Checks &amp; Radios</div>
-                  </div>
-                  <div class="card-body">
-                    <h6 class="text-secondary small text-uppercase mb-2">Checkboxes</h6>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="checkbox" id="check-default" />
-                      <label class="form-check-label" for="check-default">Default</label>
-                    </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="checkbox" id="check-checked" checked />
-                      <label class="form-check-label" for="check-checked">Pre-checked</label>
-                    </div>
-                    <div class="form-check mb-3">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="check-disabled"
-                        disabled
-                      />
-                      <label class="form-check-label" for="check-disabled">Disabled</label>
-                    </div>
-
-                    <h6 class="text-secondary small text-uppercase mb-2 mt-3">Radios</h6>
-                    <div class="form-check mb-2">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="radioGroup"
-                        id="radio-1"
-                        checked
-                      />
-                      <label class="form-check-label" for="radio-1">Option one</label>
-                    </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="radio" name="radioGroup" id="radio-2" />
-                      <label class="form-check-label" for="radio-2">Option two</label>
-                    </div>
-
-                    <h6 class="text-secondary small text-uppercase mb-2 mt-3">Switches</h6>
-                    <div class="form-check form-switch mb-2">
-                      <input class="form-check-input" type="checkbox" role="switch" id="switch-1" />
-                      <label class="form-check-label" for="switch-1">Notifications</label>
-                    </div>
-                    <div class="form-check form-switch">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        role="switch"
-                        id="switch-2"
-                        checked
-                      />
-                      <label class="form-check-label" for="switch-2">Auto-save</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Select / Range / File -->
-              <div class="col-md-6">
-                <div class="card card-warning card-outline mb-4">
-                  <div class="card-header">
-                    <div class="card-title">Selects, Ranges &amp; File</div>
-                  </div>
-                  <div class="card-body">
-                    <div class="mb-3">
-                      <label class="form-label" for="select-default">Select</label>
-                      <select class="form-select" id="select-default">
-                        <option selected>Open this select menu</option>
-                        <option>One</option>
-                        <option>Two</option>
-                        <option>Three</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="select-multiple">Multi-select</label>
-                      <select class="form-select" id="select-multiple" multiple size="3">
-                        <option>Apple</option>
-                        <option selected>Orange</option>
-                        <option>Pear</option>
-                        <option>Mango</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="range-1">Range</label>
-                      <input
-                        type="range"
-                        class="form-range"
-                        id="range-1"
-                        min="0"
-                        max="100"
-                        value="35"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="form-file-multi">Multiple files</label>
-                      <input class="form-control" type="file" id="form-file-multi" multiple />
-                    </div>
-                    <div>
-                      <label class="form-label" for="form-color">Color</label>
-                      <input
-                        type="color"
-                        class="form-control form-control-color"
-                        id="form-color"
-                        value="#0d6efd"
-                        title="Choose your color"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Floating labels -->
-              <div class="col-md-6">
-                <div class="card card-secondary card-outline mb-4">
-                  <div class="card-header">
-                    <div class="card-title">Floating Labels</div>
-                  </div>
-                  <div class="card-body">
-                    <div class="form-floating mb-3">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="floatingEmail"
-                        placeholder="name@example.com"
-                      />
-                      <label for="floatingEmail">Email address</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="floatingPwd"
-                        placeholder="Password"
-                      />
-                      <label for="floatingPwd">Password</label>
-                    </div>
-                    <div class="form-floating">
-                      <textarea
-                        class="form-control"
-                        id="floatingTextarea"
-                        placeholder="Leave a comment here"
-                        style="height: 6rem"
-                      ></textarea>
-                      <label for="floatingTextarea">Comments</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Disabled / Readonly -->
-              <div class="col-md-6">
-                <div class="card card-danger card-outline mb-4">
-                  <div class="card-header">
-                    <div class="card-title">Disabled &amp; Readonly</div>
-                  </div>
-                  <div class="card-body">
-                    <div class="mb-3">
-                      <label class="form-label" for="dis-text">Disabled text</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="dis-text"
-                        value="Can't touch this"
-                        disabled
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="ro-text">Readonly text</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="ro-text"
-                        value="Read me, but don't write me"
-                        readonly
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="dis-select">Disabled select</label>
-                      <select id="dis-select" class="form-select" disabled>
-                        <option>Locked option</option>
-                      </select>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="dis-check" disabled />
-                      <label class="form-check-label" for="dis-check">Can't check this</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <!-- /.card-body -->
             </div>
+            <!-- /.card -->
+            <!-- general form elements disabled -->
+            <div class="card card-secondary">
+              <div class="card-header">
+                <h3 class="card-title">Custom Elements</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- checkbox -->
+                      <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                          <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
+                          <label for="customCheckbox1" class="custom-control-label">Custom Checkbox</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input class="custom-control-input" type="checkbox" id="customCheckbox2" checked>
+                          <label for="customCheckbox2" class="custom-control-label">Custom Checkbox checked</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input class="custom-control-input" type="checkbox" id="customCheckbox3" disabled>
+                          <label for="customCheckbox3" class="custom-control-label">Custom Checkbox disabled</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input class="custom-control-input custom-control-input-danger" type="checkbox" id="customCheckbox4" checked>
+                          <label for="customCheckbox4" class="custom-control-label">Custom Checkbox with custom color</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="checkbox" id="customCheckbox5" checked>
+                          <label for="customCheckbox5" class="custom-control-label">Custom Checkbox with custom color outline</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- radio -->
+                      <div class="form-group">
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
+                          <label for="customRadio1" class="custom-control-label">Custom Radio</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked>
+                          <label for="customRadio2" class="custom-control-label">Custom Radio checked</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input" type="radio" id="customRadio3" disabled>
+                          <label for="customRadio3" class="custom-control-label">Custom Radio disabled</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input custom-control-input-danger" type="radio" id="customRadio4" name="customRadio2" checked>
+                          <label for="customRadio4" class="custom-control-label">Custom Radio with custom color</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" id="customRadio5" name="customRadio2">
+                          <label for="customRadio5" class="custom-control-label">Custom Radio with custom color outline</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Custom Select</label>
+                        <select class="custom-select">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Custom Select Disabled</label>
+                        <select class="custom-select" disabled>
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- Select multiple-->
+                      <div class="form-group">
+                        <label>Custom Select Multiple</label>
+                        <select multiple class="custom-select">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Custom Select Multiple Disabled</label>
+                        <select multiple class="custom-select" disabled>
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                      <label class="custom-control-label" for="customSwitch1">Toggle this custom switch element</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                      <input type="checkbox" class="custom-control-input" id="customSwitch3">
+                      <label class="custom-control-label" for="customSwitch3">Toggle this custom switch element with custom colors danger/success</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+                      <label class="custom-control-label" for="customSwitch2">Disabled custom switch element</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="customRange1">Custom range</label>
+                    <input type="range" class="custom-range" id="customRange1">
+                  </div>
+                  <div class="form-group">
+                    <label for="customRange2">Custom range (custom-range-danger)</label>
+                    <input type="range" class="custom-range custom-range-danger" id="customRange2">
+                  </div>
+                  <div class="form-group">
+                    <label for="customRange3">Custom range (custom-range-teal)</label>
+                    <input type="range" class="custom-range custom-range-teal" id="customRange3">
+                  </div>
+                  <div class="form-group">
+                    <!-- <label for="customFile">Custom File</label> -->
+
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
           </div>
+          <!--/.col (right) -->
         </div>
-      </main>
-      <!--begin::Footer-->
-      <footer class="app-footer">
-        <!--begin::To the end-->
-        <div class="float-end d-none d-sm-inline">Anything you want</div>
-        <!--end::To the end-->
-        <!--begin::Copyright-->
-        <strong>
-          Copyright &copy; 2014-2026&nbsp;
-          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
-        </strong>
-        All rights reserved.
-        <!--end::Copyright-->
-      </footer>
-      <!--end::Footer-->
-    </div>
-    <!--begin::Third Party Plugin(OverlayScrollbars)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <script src="../js/adminlte.js"></script>
-    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
-    <script>
-      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
-      const Default = {
-        scrollbarTheme: 'os-theme-light',
-        scrollbarAutoHide: 'leave',
-        scrollbarClickScroll: true,
-      };
-      document.addEventListener('DOMContentLoaded', function () {
-        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ 
+  <?php include_once ('views/layouts/footer.php');?>
 
-        // Disable OverlayScrollbars on mobile devices to prevent touch interference
-        const isMobile = window.innerWidth <= 992;
+  <!-- Control Sidebar -->
+  <?php include_once ('views/layouts/control_sidebar.php');?>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
 
-        if (
-          sidebarWrapper &&
-          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
-          !isMobile
-        ) {
-          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
-            scrollbars: {
-              theme: Default.scrollbarTheme,
-              autoHide: Default.scrollbarAutoHide,
-              clickScroll: Default.scrollbarClickScroll,
-            },
-          });
-        }
-      });
-    </script>
-    <!--end::OverlayScrollbars Configure--><!--begin::Color Mode Toggle (#6010)-->
-    <script>
-      (() => {
-        'use strict';
+<?php include_once ('views/layouts/foot.php');?>
 
-        const STORAGE_KEY = 'lte-theme';
-
-        const getStoredTheme = () => localStorage.getItem(STORAGE_KEY);
-        const setStoredTheme = (theme) => localStorage.setItem(STORAGE_KEY, theme);
-
-        const prefersDark = () => globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        const getPreferredTheme = () => {
-          const stored = getStoredTheme();
-          if (stored) return stored;
-          return prefersDark() ? 'dark' : 'light';
-        };
-
-        const setTheme = (theme) => {
-          const resolved = theme === 'auto' ? (prefersDark() ? 'dark' : 'light') : theme;
-          document.documentElement.setAttribute('data-bs-theme', resolved);
-        };
-
-        setTheme(getPreferredTheme());
-
-        const showActiveTheme = (theme) => {
-          // Highlight the active dropdown option
-          document.querySelectorAll('[data-bs-theme-value]').forEach((el) => {
-            el.classList.remove('active');
-            el.setAttribute('aria-pressed', 'false');
-            const check = el.querySelector('.bi-check-lg');
-            if (check) check.classList.add('d-none');
-          });
-          const active = document.querySelector(`[data-bs-theme-value="${theme}"]`);
-          if (active) {
-            active.classList.add('active');
-            active.setAttribute('aria-pressed', 'true');
-            const check = active.querySelector('.bi-check-lg');
-            if (check) check.classList.remove('d-none');
-          }
-          // Sync the topbar trigger icon
-          document.querySelectorAll('[data-lte-theme-icon]').forEach((icon) => {
-            icon.classList.toggle('d-none', icon.dataset.lteThemeIcon !== theme);
-          });
-        };
-
-        globalThis.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-          const stored = getStoredTheme();
-          if (!stored || stored === 'auto') setTheme(getPreferredTheme());
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-          showActiveTheme(getPreferredTheme());
-          document.querySelectorAll('[data-bs-theme-value]').forEach((toggle) => {
-            toggle.addEventListener('click', () => {
-              const theme = toggle.getAttribute('data-bs-theme-value');
-              setStoredTheme(theme);
-              setTheme(theme);
-              showActiveTheme(theme);
-            });
-          });
-        });
-      })();
-    </script>
-    <!--end::Color Mode Toggle-->
-  </body>
-</html>
