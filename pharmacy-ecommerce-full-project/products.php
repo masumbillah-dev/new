@@ -1,0 +1,1 @@
+<?php echo 'Browse all medicines here'; ?>

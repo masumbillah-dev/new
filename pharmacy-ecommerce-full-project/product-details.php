@@ -1,0 +1,1 @@
+<?php echo 'Medicine Description and Buy option'; ?>

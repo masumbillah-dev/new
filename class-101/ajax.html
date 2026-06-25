@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script>
+        //$.get();
+        //$.post();
+
+        $.ajax({
+            url: "https://jsonplaceholder.typicode.com/photos",
+            // url: "js/data.json",
+            // type: "POST", //optional
+            // data: "{'name': 'John', 'age': '25'}", //optional
+            // dataType: "json", //optional
+            
+            success: function(res) {
+                console.log(res);
+            },
+            error: function(err){ //optional
+                console.log(err);
+            }
+        });
+    </script>
+</body>
+</html>

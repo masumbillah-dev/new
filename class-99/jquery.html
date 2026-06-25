@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p class="p-1">Para 1</p>
+    <p id="p-2">Para 2</p>
+    <p class="p-3">Para 3</p>
+    <p class="p-4">Para 4</p>
+    <div></div>
+
+
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script>
+        // document.querySelectorAll('p').forEach(p => {
+        //     p.style.color = 'red';
+        // });
+
+        // $("p").css("color", "red");
+        // $("#p-2").css("color", "green");
+        // $("#.p-3 span").css("color", "green");
+        // document.querySelector("div").innerText = "Hello World";
+        // $("div").text("Hello <b>World</b>");
+        // $("div").html("Hello <b>World</b>");
+
+        // $(".p-1").css({
+        //     "color"             : "red",
+        //     "font-weight"       : "bold",
+        //     "font-size"         : "20px",
+        //     "background-color"  : "yellow",
+
+        // });
+
+        // $("div").append ("<p>Para 40</p>");
+        // $("div").append ("<p>Para 50</p>");
+        // $("div").append ("<p>Para 60</p>");
+
+        // $(".p-3, #p-2").hide();
+        
+        document.querySelector(".p-3").addEventListener("click", function(){
+            alert();
+        });
+
+        $(".p-3").click(function(){
+            alert();
+        });
+        $("#p-2").mouseover(function(){
+            alert();
+        });
+        $('[class="p-4"]').dblclick(function(){
+            alert();
+        });
+
+        
+
+    </script>
+</body>
+
+</html>

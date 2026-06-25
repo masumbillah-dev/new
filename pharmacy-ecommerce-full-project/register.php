@@ -1,0 +1,1 @@
+<?php echo 'Register New User'; ?>
