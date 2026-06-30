@@ -1,10 +1,15 @@
+
 <?php
+if ($_SESSION['role_id'] == 3 || $_SESSION['role_id'] == 4  ) {
+    header("Location: access-deny");
+}
+
 require_once 'models/product.class.php';
 require_once 'models/order.class.php';
 require_once 'models/category.class.php';
 
-$rows = Product::readAll();
 $categories = Category::readAll();
+$rows = Product::readAll();
 // echo '<pre>';
 // print_r($categories);
 // echo '</pre>';
@@ -62,11 +67,10 @@ if (isset($_POST['checkout'])) {
             <div class="row">
                 <div class="col-8">
                     <div>
-                        <!-- Category select -->
-                        <select class="form-control mb-3" style="width: 200px;" id="categoryFilter">
+                        <select class="form-control mb-3" id="categoryFilter" style="width: 200px">
                             <option value="0">All</option>
                             <?php foreach ($categories as $category): ?>
-                                <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                                <option value="<?= $category['id']; ?>"><?= $category['name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -125,17 +129,15 @@ if (isset($_POST['checkout'])) {
 </div>
 <style>
     @media screen {
-        .receipt {
+        .receipt{
             display: none !important;
         }
     }
-
     @media print {
-        .receipt {
+        .receipt{
             display: block !important;
         }
-
-        .content-wrapper {
+        .content-wrapper{
             display: none !important;
         }
     }
@@ -167,37 +169,41 @@ if (isset($_POST['checkout'])) {
 
 <script src="<?= BASE_URL_ADMIN; ?>assets/js/jquery-4.0.0.min.js"></script>
 <script>
-    $('#categoryFilter').on("change", function() {
+    $("#categoryFilter").on("change", function() {
+        // console.log($(this).val());
+        // let categoryId = $("#categoryFilter").val();
         let categoryId = $(this).val();
+        // console.log(categoryId);
         $.ajax({
-            "url": `api/get-products?id=${categoryId}`,
-            type: "GET",
+            // url: "api/get-products?id=" + categoryId,
+            url: `api/get-products?category_id=${categoryId}`,
+            type: "get",
             success: function(response) {
                 let products = JSON.parse(response);
-                console.log(products);
+                // console.log(products);
                 let html = "";
                 products.forEach(item => {
                     html += `
                     <div class="col-lg-3 col-sm-6">
                         <div class="card" style="cursor: pointer"
-                            onclick="addToCart(< ${item['id']},'${item['name']}',${item['price']})">
-                            <img src="<?= BASE_URL_ADMIN ?>${item['image']}" alt="" height="200" class="card-img p-3">
+                            onclick="addToCart(${item['id']},'${item['name']}',${item['price']})">
+                            <img src="<?= BASE_URL_ADMIN; ?>${item['image']}" alt="" height="200" class="card-img p-3">
                             <div class="card-body text-center">
-                                <h6> ${item['name']}</h6>
+                                <h6>${item['name']}</h6>
                                 <h5 class="card-text">BDT ${item['price']}</h5>
                             </div>
                         </div>
                     </div>
                     `;
                 });
-                console.log(html);
-                $('#productList').html(html);
+                // console.log(html);
+                $("#productList").html(html);
             },
             error: function(error) {
                 console.log(error);
             }
-        })
-    })
+        });
+    });
 </script>
 
 <script src="<?= BASE_URL_ADMIN; ?>helpers/cart-helper.js"></script>

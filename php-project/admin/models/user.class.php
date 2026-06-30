@@ -14,7 +14,6 @@ class User
         $this->role_id = $_role_id;
         $this->password = $_password;
     }
-
     public function create() {
       global $db;
       $sql = "INSERT INTO users (name, email, role_id, password) 
@@ -45,9 +44,10 @@ class User
       //   return true;
       // }
     }
-    static public function readAll() {
+    static public function readAll($_pg = 1, $_limit = 10) {
         global $db;
-        $sql = "SELECT id, name, email FROM users ORDER BY id DESC";
+        $skip = ($_pg - 1) * $_limit;
+        $sql = "SELECT id, name, email FROM users ORDER BY id DESC LIMIT $_limit OFFSET $skip";
         $result = $db->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
@@ -69,7 +69,14 @@ class User
         return true;
       }
     }
-
+    static public function getPageNo($_no_of_rows) {
+      global $db;
+      $sql = "select count(id) as total from users";
+      $result = $db->query($sql);
+      $row = $result->fetch_assoc();
+      // return $row;
+      return ceil($row['total'] / $_no_of_rows);
+    }
 }
 
 ?>
