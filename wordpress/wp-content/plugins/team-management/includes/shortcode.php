@@ -1,0 +1,253 @@
+<?php
+function team_members_shortcode(){
+    global $wpdb;
+    $table = $wpdb->prefix . 'team_members';
+    $results = $wpdb->get_results("SELECT * FROM $table");
+    // echo "<pre>";
+    // print_r($results);
+    // echo "</pre>";
+    
+    ob_start();
+?>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
+    color:#fff;
+    min-height:100vh;
+}
+
+.team-section{
+
+    width:100%;
+    padding:90px 8%;
+}
+
+.team-title{
+
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.team-title h4{
+
+    color:#38bdf8;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.team-title h1{
+
+    font-size:48px;
+    margin-top:10px;
+}
+
+.team-title p{
+
+    max-width:700px;
+    margin:20px auto;
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+.team-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:35px;
+}
+
+.team-card{
+
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    overflow:hidden;
+    transition:.4s;
+    position:relative;
+}
+
+.team-card:hover{
+
+    transform:translateY(-15px);
+    box-shadow:0 25px 45px rgba(0,0,0,.4);
+}
+
+.team-image{
+
+    position:relative;
+    overflow:hidden;
+}
+
+.team-image img{
+
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.team-card:hover img{
+
+    transform:scale(1.08);
+}
+
+.overlay{
+
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent,#000);
+}
+
+.social{
+
+    position:absolute;
+    bottom:-60px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:12px;
+    transition:.4s;
+}
+
+.team-card:hover .social{
+
+    bottom:25px;
+}
+
+.social a{
+
+    width:42px;
+    height:42px;
+    background:#38bdf8;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.social a:hover{
+
+    background:#fff;
+    color:#0f172a;
+    transform:rotate(360deg);
+}
+
+.team-content{
+
+    padding:30px;
+    text-align:center;
+}
+
+.team-content h2{
+    color: antiquewhite;
+    margin-bottom:5px;
+}
+
+.team-content h5{
+
+    color:#38bdf8;
+    margin-bottom:15px;
+    font-weight:500;
+}
+
+.team-content p{
+
+    color:#cbd5e1;
+    line-height:1.6;
+}
+
+@media(max-width:768px){
+
+.team-title h1{
+
+font-size:34px;
+
+}
+
+}
+
+</style>
+
+<section class='team-section'>
+
+<div class='team-title'>
+
+<h4>Creative Team</h4>
+
+<h1>Meet Our Experts</h1>
+
+<p>
+We are passionate designers, developers and creators dedicated to building
+beautiful digital experiences.
+</p>
+
+</div>
+
+<div class='team-grid'>
+    <?php foreach ($results as $item) { ?>
+
+<div class='team-card'>
+
+<div class='team-image'>
+    <?php if ($item->image != null) {
+                        $img = wp_get_attachment_url($item->image);
+                    } else {
+                        $img = "https://placehold.co/120x120/000000/FFFFFF.png?text=".$item->name;
+                    } ?>
+
+<img src='<?php echo $img; ?>' alt=''>
+
+<div class='overlay'></div>
+
+<div class='social'>
+
+<a href='#'><i class='fab fa-facebook-f'></i></a>
+<a href='#'><i class='fab fa-linkedin-in'></i></a>
+<a href='#'><i class='fab fa-github'></i></a>
+
+</div>
+
+</div>
+
+<div class='team-content'>
+
+<h2><?php echo $item->name; ?></h2>
+
+<h5><?php echo $item->designation; ?></h5>
+
+<p>
+<?php echo $item->email; ?>
+</p>
+
+</div>
+
+</div>
+<?php }?>
+
+
+
+</div>
+
+</section>
+
+<?php
+return ob_get_clean();
+
+}
+add_shortcode('team_members_section', 'team_members_shortcode');
+
+?>

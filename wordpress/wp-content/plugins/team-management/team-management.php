@@ -15,10 +15,13 @@ if (! defined('ABSPATH')) {
 if (!session_id()) session_start();
 
 require_once(__DIR__ . '/includes/menus.php');
+require_once(__DIR__ . '/includes/shortcode.php');
 
 function team_members_list() {
     require_once(__DIR__ . '/templates/team-manage.php');
+    require_once(__DIR__. '/includes/shortcode.php');
 }
+
 
 function team_members_add()
 {

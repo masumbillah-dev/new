@@ -60,6 +60,26 @@ foreach ($results as $item) {
 
 ?>
 <a href='admin.php?page=team-add' class='button button-primary'>Add New Member</a>
+<section>
+    <h2>Shortcode</h2>
+    <p>Click the button below to copy the shortcode.</p>
+    <p><code>[team_members_section]</code></p>
+    <button type="button" onclick="copyText(this)" class="button button-outline-primary">Copy Shortcode</button>
+    <script>
+        function copyText(ele) {
+            var text = "[team_members_section]";
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = ele.textContent;
+                ele.textContent = 'Copied!';
+                ele.disabled = true;
+                setTimeout(() => {
+                    ele.textContent = originalText;
+                    ele.disabled = false;
+                }, 2000);
+            });
+        }
+    </script>
+</section>
 <h2>Team Members List</h2>
 <table class='wp-list-table widefat fixed striped table-view-list tags'>
     <thead>
