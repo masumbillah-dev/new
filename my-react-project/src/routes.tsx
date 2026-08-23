@@ -5,6 +5,8 @@ import AdminLayout from "../src/views/layouts/AdminLayout";
 import Dashboard from "../src/views/pages/Dashboard";
 import Leads from "../src/views/pages/Leads";
 import Contact from "../src/views/pages/contact";
+import Companies from "./views/pages/companies";
+import Deals from "./views/pages/deals";
 
 
 export const routes = createBrowserRouter([
@@ -41,5 +43,16 @@ export const routes = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
     },
+
+    {
+    path: "/companies",
+    element: <Companies />,
+    },
+
+    {
+    path: "/deals",
+    element: <Deals />,
+    },
+
 
 ]);

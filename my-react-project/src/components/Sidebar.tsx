@@ -136,7 +136,7 @@ function Sidebar() {
                             <li className="nav-item">
                                 <NavLink
                                     className="nav-link"
-                                    to="/contacts"
+                                    to="/contact"
                                 >
                                     Contacts
                                 </NavLink>
