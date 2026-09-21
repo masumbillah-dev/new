@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS'){
 
 require_once "../config/db.php";
 require_once"../helpers/img-upload-helper.php";
+require_once"../helpers/jwt.php";
 // require_once "../model/user.class.php";
 foreach (glob ("../model/*.class.php") as $modalfile) {
     require_once $modalfile;
@@ -29,7 +30,14 @@ if ($_GET['endpoint']) {
     $endpoint = $_GET['endpoint'];
     $method = $_SERVER ['REQUEST_METHOD'];
 
-    if ($endpoint == "users" && $method == "GET") {
+    if($endpoint == "login" && $method == "POST"){
+    
+            $data = json_decode(file_get_contents("php://input"), true);
+            checkLogin($data);
+        
+    }  
+
+    elseif($endpoint == "users" && $method == "GET") {
         getUsers();
     }elseif($endpoint == "user-create" && $method == "POST") {
         $data = json_decode(file_get_contents("php://input"), true);
@@ -69,9 +77,27 @@ if ($_GET['endpoint']) {
         // print_r($_POST);
         // print_r($_FILES);
         createProduct($_POST, $_FILES);
-       
-
-    }else{
+    
+    }elseif ($endpoint == "token") {
+        $data = [
+            "user_id"   => 15,
+            "name"      => "Mina",
+            "role_id"   => 1
+        ];
+        echo generateJWT($data);
+    }elseif ($endpoint == "check-token") {
+        $header = getallheaders();
+        $jwt = explode(" ", $header["Authorization"]);
+        // print_r($jwt[1]);
+        $valid = validateJWT($jwt[1]);
+        if($valid){
+            echo json_encode($valid);
+        }else{
+            http_response_code(404);
+            echo " Unauthorized. Plaeae try again";
+        }
+    }
+    else{
         http_response_code(404);
     }
 

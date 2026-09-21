@@ -1,16 +1,16 @@
 <?php
 
 //local 
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'ecom');
+
+//hosting
 // define('DB_HOST', 'localhost');
 // define('DB_USER', 'root');
 // define('DB_PASS', '');
 // define('DB_NAME', 'ecom');
-
-//hosting
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'ecom,');
 
 $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 

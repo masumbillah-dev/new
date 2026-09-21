@@ -1,5 +1,22 @@
+import { useState } from "react";
 import { Link } from "react-router";
+import { api } from "../../../config";
 function Login() {
+  const [user, setUser] = useState({email: "", password: ""});
+  // function handleSubmit() {} or
+  // const handleSubmit = () => {}; or
+  const handleSubmit = function() {
+    // console.log(user);
+    api.post("login", user)
+    .then((res) => {
+      console.log(res.data);
+    })
+
+    .catch((err) => {
+      console.log(err.response.data);
+    });
+  };
+  
   return (
     <>
       <main className="auth-page">
@@ -30,6 +47,8 @@ function Login() {
                 id="loginEmail"
                 type="email"
                 required
+                value={user.email}
+                onChange={(e) => setUser({...user, email: e.target.value})}
               />
               <div className="invalid-feedback">Enter a valid email.</div>
             </div>
@@ -46,11 +65,13 @@ function Login() {
                 className="form-control"
                 id="loginPassword"
                 type="password"
-                minLength={6}
+                minLength={3}
                 required
+                value={user.password}
+                onChange={(e) => setUser({...user, password: e.target.value})}
               />
               <div className="invalid-feedback">
-                Password must be at least 6 characters.
+                Password must be at least 3 characters.
               </div>
             </div>
             <div className="form-check mb-4">
@@ -63,10 +84,10 @@ function Login() {
                 Remember me
               </label>
             </div>
-            <Link to="/" className="btn btn-primary w-100">
+            <button type="button" className="btn btn-primary w-100" onClick={handleSubmit}>
               <i className="bi bi-box-arrow-in-right me-2" aria-hidden="true"></i>
               Sign In
-            </Link>
+            </button>
           </form>
 
           <div className="auth-footer">

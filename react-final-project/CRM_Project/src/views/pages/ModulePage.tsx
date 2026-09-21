@@ -239,6 +239,31 @@ function ModulePage({ config }: ModulePageProps) {
                   </div>
                 </form>
               )}
+              {modal === "view" && selected && (
+    <div className="modal-footer">
+
+        <button
+            type="button"
+            className="btn btn-warning"
+            onClick={() => openEdit(selected)}
+        >
+            <i className="mdi mdi-pencil"></i>
+            &nbsp; Edit
+        </button>
+
+        <button
+            type="button"
+            className="btn btn-light"
+            onClick={() => {
+                setModal(null);
+                setSelected(null);
+            }}
+        >
+            Close
+        </button>
+
+    </div>
+)}
             </div>
           </div>
         </div>
